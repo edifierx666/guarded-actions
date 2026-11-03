@@ -1,0 +1,4 @@
+{
+  "description": "Native model-step substitution with unchanged tool permissions",
+  "modules": ["./register.ts"]
+}

@@ -1,0 +1,323 @@
+{
+  "host": "2.1.316",
+  "scope": "Observed real provider/native tool runs. Temporary fixture paths were replaced with /tmp/guarded-actions-fixture for publication; execution identities, results and measurements are unchanged.",
+  "scenarios": {
+    "build": {
+      "status": {
+        "enabled": true,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": "7a6645f85c7444fcb999cb39c160bedd",
+          "state": "completed",
+          "reason": null,
+          "nodes": [
+            {
+              "id": "build",
+              "state": "succeeded",
+              "callId": "ga_7a6645f85c7444fcb999cb39c160bedd_build"
+            },
+            {
+              "id": "check",
+              "state": "succeeded",
+              "callId": "ga_7a6645f85c7444fcb999cb39c160bedd_check"
+            }
+          ]
+        },
+        "modelRequests": 2,
+        "authorRequests": 1,
+        "initialDispatches": 1,
+        "continuationDispatches": 1,
+        "certifiedSubstitutions": 1,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 4,
+          "output_tokens": 389,
+          "cache_read_input_tokens": 9092,
+          "cache_creation_input_tokens": 434
+        },
+        "fallbacks": {
+          "graph_exhausted": 1
+        },
+        "outcomes": {
+          "succeeded": 2,
+          "failed": 0,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "terminal_reason": "completed",
+      "permission_denials": [],
+      "native_calls": [
+        {
+          "id": "ga_7a6645f85c7444fcb999cb39c160bedd_build",
+          "name": "Bash",
+          "input": {
+            "command": "node build.mjs",
+            "description": "Run the build script"
+          }
+        },
+        {
+          "id": "ga_7a6645f85c7444fcb999cb39c160bedd_check",
+          "name": "Bash",
+          "input": {
+            "command": "node check.mjs",
+            "description": "Run the check script"
+          }
+        }
+      ],
+      "reported_answer": "The check passed. Both commands ran in order through a Guarded Actions plan, and both finished without an error.\n\n1. `node build.mjs` printed:\n   ```\n   build: sum artifact written\n   ```\n2. `node check.mjs` ran because the build succeeded, and printed:\n   ```\n   check: sum is 42\n   ```\n\nI counted it as a pass because the check exited without an error. Its output only reports the sum and doesn't say \"pass\" or \"fail\" outright.",
+      "unexpected_side_effect_exists": false
+    },
+    "failure": {
+      "status": {
+        "enabled": true,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": "37fb7cb011414cdf964ceaa576648484",
+          "state": "invalidated",
+          "reason": "execution_failed",
+          "nodes": [
+            {
+              "id": "run_fail",
+              "state": "failed",
+              "callId": "ga_37fb7cb011414cdf964ceaa576648484_run_fail"
+            },
+            {
+              "id": "run_second",
+              "state": "skipped"
+            }
+          ]
+        },
+        "modelRequests": 2,
+        "authorRequests": 1,
+        "initialDispatches": 1,
+        "continuationDispatches": 0,
+        "certifiedSubstitutions": 0,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 4,
+          "output_tokens": 354,
+          "cache_read_input_tokens": 7771,
+          "cache_creation_input_tokens": 1859
+        },
+        "fallbacks": {
+          "native_failed": 1,
+          "execution_failed": 1
+        },
+        "outcomes": {
+          "succeeded": 0,
+          "failed": 1,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "terminal_reason": "completed",
+      "permission_denials": [],
+      "native_calls": [
+        {
+          "id": "ga_37fb7cb011414cdf964ceaa576648484_run_fail",
+          "name": "Bash",
+          "input": {
+            "command": "node fail.mjs",
+            "description": "Run fail.mjs script"
+          }
+        }
+      ],
+      "reported_answer": "`node fail.mjs` failed. It exited with code 7 and printed:\n\n```\nbuild rejected: expected failure seven\n```\n\nI skipped `node must-not-run.mjs`. It was set to run only if the first command succeeded, so it never ran. Both commands went in as one Guarded Actions plan, and after the failure I didn't retry, change the plan or edit any files.",
+      "unexpected_side_effect_exists": false
+    },
+    "denied": {
+      "status": {
+        "enabled": true,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": "55939d9c1cdc4a3ba810771727fc59e5",
+          "state": "invalidated",
+          "reason": "receipt_unknown",
+          "nodes": [
+            {
+              "id": "first",
+              "state": "unknown",
+              "callId": "ga_55939d9c1cdc4a3ba810771727fc59e5_first"
+            },
+            {
+              "id": "second",
+              "state": "skipped"
+            }
+          ]
+        },
+        "modelRequests": 2,
+        "authorRequests": 1,
+        "initialDispatches": 1,
+        "continuationDispatches": 0,
+        "certifiedSubstitutions": 0,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 4,
+          "output_tokens": 491,
+          "cache_read_input_tokens": 4546,
+          "cache_creation_input_tokens": 4960
+        },
+        "fallbacks": {
+          "receipt_unknown": 1
+        },
+        "outcomes": {
+          "succeeded": 0,
+          "failed": 0,
+          "pending": 0,
+          "unknown": 1
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "terminal_reason": "completed",
+      "permission_denials": [
+        {
+          "tool_name": "Read",
+          "tool_use_id": "ga_55939d9c1cdc4a3ba810771727fc59e5_first",
+          "tool_input": {
+            "file_path": "/tmp/guarded-actions-fixture/denied/first.txt"
+          }
+        }
+      ],
+      "native_calls": [
+        {
+          "id": "ga_55939d9c1cdc4a3ba810771727fc59e5_first",
+          "name": "Read",
+          "input": {
+            "file_path": "/tmp/guarded-actions-fixture/denied/first.txt"
+          }
+        }
+      ],
+      "reported_answer": "I couldn't read either file because permission to read the first one was denied.\n\n1. **Plan:** I submitted both reads as one `commit_plan`, with the second read set to run only if the first succeeded. The plan was staged (planId `55939d9c1cdc4a3ba810771727fc59e5`).\n2. **First file:** Reading `/tmp/guarded-actions-fixture/denied/first.txt` failed with: `Permission to read /tmp/guarded-actions-fixture/denied/first.txt has been denied.`\n3. **Second file:** Since the first read failed, I didn't read `second.txt`.\n\nAs you asked, I didn't retry or try another tool. I don't know what's in either file.",
+      "unexpected_side_effect_exists": false
+    },
+    "cancelled": {
+      "status": {
+        "enabled": true,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": "48544858d8f24e26b003759fe415a83e",
+          "state": "invalidated",
+          "reason": "cancelled",
+          "nodes": [
+            {
+              "id": "slow",
+              "state": "unknown",
+              "callId": "ga_48544858d8f24e26b003759fe415a83e_slow"
+            },
+            {
+              "id": "successor",
+              "state": "skipped"
+            }
+          ]
+        },
+        "modelRequests": 1,
+        "authorRequests": 1,
+        "initialDispatches": 1,
+        "continuationDispatches": 0,
+        "certifiedSubstitutions": 0,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 2,
+          "output_tokens": 203,
+          "cache_read_input_tokens": 3055,
+          "cache_creation_input_tokens": 1443
+        },
+        "fallbacks": {
+          "cancelled": 1
+        },
+        "outcomes": {
+          "succeeded": 0,
+          "failed": 0,
+          "pending": 0,
+          "unknown": 1
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "terminal_reason": "aborted_tools",
+      "permission_denials": [],
+      "native_calls": [
+        {
+          "id": "ga_48544858d8f24e26b003759fe415a83e_slow",
+          "name": "Bash",
+          "input": {
+            "command": "node slow.mjs",
+            "description": "Run slow script"
+          }
+        }
+      ],
+      "reported_answer": null,
+      "unexpected_side_effect_exists": false
+    },
+    "timeout": {
+      "status": {
+        "enabled": true,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": "09e42d5512e247e1a00dd59e88672c48",
+          "state": "invalidated",
+          "reason": "execution_failed",
+          "nodes": [
+            {
+              "id": "sleep",
+              "state": "failed",
+              "callId": "ga_09e42d5512e247e1a00dd59e88672c48_sleep"
+            },
+            {
+              "id": "print",
+              "state": "skipped"
+            }
+          ]
+        },
+        "modelRequests": 2,
+        "authorRequests": 1,
+        "initialDispatches": 1,
+        "continuationDispatches": 0,
+        "certifiedSubstitutions": 0,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 4,
+          "output_tokens": 495,
+          "cache_read_input_tokens": 7596,
+          "cache_creation_input_tokens": 1782
+        },
+        "fallbacks": {
+          "execution_failed": 1
+        },
+        "outcomes": {
+          "succeeded": 0,
+          "failed": 1,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "terminal_reason": "completed",
+      "permission_denials": [],
+      "native_calls": [
+        {
+          "id": "ga_09e42d5512e247e1a00dd59e88672c48_sleep",
+          "name": "Bash",
+          "input": {
+            "command": "sleep 2",
+            "timeout": 1000
+          }
+        }
+      ],
+      "reported_answer": "I submitted the plan, and it ran as you'd expect: the first step failed, so the second never ran.\n\n1. **Plan submitted:** `commit_plan` staged both actions (plan ID `09e42d5512e247e1a00dd59e88672c48`). Step 1 was `sleep 2` with a 1000 ms timeout. Step 2 was `printf should-not-run`, set to run only if step 1 succeeded.\n2. **Step 1 failed:** `sleep 2` was stopped when the 1-second limit hit, before it could finish. The error was `Exit code 143 — Command timed out after 1s` (exit code 143 means the process was killed by a termination signal).\n3. **Step 2 did not run:** because step 1 failed, `printf should-not-run` was never started and printed nothing.\n\nI didn't retry, change the timeout, edit any files or use other tools.",
+      "unexpected_side_effect_exists": false
+    }
+  }
+}

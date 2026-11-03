@@ -1,0 +1,84 @@
+{
+  "scope": "Post-review actual native smoke; not part of the fixed A/B cohort",
+  "host": "Claude Code2.1.316",
+  "status": {
+    "enabled": true,
+    "compatible": true,
+    "version": "2.1.316",
+    "supportedVersion": "2.1.316",
+    "plan": {
+      "planId": "50c244397ac744d393f3ff82f729ef72",
+      "state": "completed",
+      "reason": null,
+      "nodes": [
+        {
+          "id": "build",
+          "state": "succeeded",
+          "callId": "ga_50c244397ac744d393f3ff82f729ef72_build"
+        },
+        {
+          "id": "check",
+          "state": "succeeded",
+          "callId": "ga_50c244397ac744d393f3ff82f729ef72_check"
+        }
+      ]
+    },
+    "modelRequests": 2,
+    "authorRequests": 1,
+    "initialDispatches": 1,
+    "continuationDispatches": 1,
+    "certifiedSubstitutions": 1,
+    "unknownUsageRequests": 0,
+    "usage": {
+      "input_tokens": 4,
+      "output_tokens": 401,
+      "cache_read_input_tokens": 9112,
+      "cache_creation_input_tokens": 432
+    },
+    "fallbacks": {
+      "graph_exhausted": 1
+    },
+    "outcomes": {
+      "succeeded": 2,
+      "failed": 0,
+      "pending": 0,
+      "unknown": 0
+    },
+    "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+  },
+  "answer": "I submitted both actions as a Guarded Actions plan, then ran them in order. The build succeeded, so the check ran next.\n\n1. `node build.mjs` printed:\n   ```\n   build: sum artifact written\n   ```\n2. `node check.mjs` printed:\n   ```\n   check: sum is 42\n   ```\n\n**The check passed:** it finished without an error. Its output gives the sum but no explicit pass or fail message, so \"passed\" means it exited cleanly. I didn't retry anything or edit any files.",
+  "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 432,
+    "cache_read_input_tokens": 9112,
+    "output_tokens": 401,
+    "output_tokens_details": {
+      "thinking_tokens": 35
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 432,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 203,
+        "cache_read_input_tokens": 4556,
+        "cache_creation_input_tokens": 432,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 432
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  }
+}

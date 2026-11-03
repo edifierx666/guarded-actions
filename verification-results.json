@@ -1,0 +1,1992 @@
+{
+  "scope": "Small real-model task comparison, not a benchmark or general savings guarantee",
+  "host": "Claude Code 2.1.316",
+  "platform": "darwin arm64",
+  "provider_model": "claude-opus-5-5",
+  "runs": [
+    {
+      "scenario": "build",
+      "repeat": 1,
+      "mode": "off",
+      "requests": 3,
+      "substitutions": 0,
+      "tokens": 12284,
+      "cost": 0.04237,
+      "api_ms": 10887,
+      "seconds": 14.89,
+      "state": "idle",
+      "usage": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 4048,
+        "cache_read_input_tokens": 7810,
+        "output_tokens": 420,
+        "output_tokens_details": {
+          "thinking_tokens": 69
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4048,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 247,
+            "cache_read_input_tokens": 3960,
+            "cache_creation_input_tokens": 88,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 88
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "status": {
+        "enabled": false,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": null,
+          "state": "idle",
+          "reason": null,
+          "nodes": []
+        },
+        "modelRequests": 3,
+        "authorRequests": 0,
+        "initialDispatches": 0,
+        "continuationDispatches": 0,
+        "certifiedSubstitutions": 0,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 6,
+          "output_tokens": 420,
+          "cache_read_input_tokens": 7810,
+          "cache_creation_input_tokens": 4048
+        },
+        "fallbacks": {},
+        "outcomes": {
+          "succeeded": 0,
+          "failed": 0,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "reported_model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 6,
+          "outputTokens": 420,
+          "cacheReadInputTokens": 7810,
+          "cacheCreationInputTokens": 4048,
+          "webSearchRequests": 0,
+          "costUSD": 0.04237,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 69,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 4048,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      }
+    },
+    {
+      "scenario": "build",
+      "repeat": 1,
+      "mode": "on",
+      "requests": 2,
+      "substitutions": 1,
+      "tokens": 9963,
+      "cost": 0.0253694,
+      "api_ms": 8255,
+      "seconds": 12.4,
+      "state": "completed",
+      "usage": {
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 1901,
+        "cache_read_input_tokens": 7627,
+        "output_tokens": 431,
+        "output_tokens_details": {
+          "thinking_tokens": 68
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1901,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 233,
+            "cache_read_input_tokens": 4546,
+            "cache_creation_input_tokens": 436,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 436
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "status": {
+        "enabled": true,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": "a4c316db6e8d456ab8e85c0990fdabe1",
+          "state": "completed",
+          "reason": null,
+          "nodes": [
+            {
+              "id": "build",
+              "state": "succeeded",
+              "callId": "ga_a4c316db6e8d456ab8e85c0990fdabe1_build"
+            },
+            {
+              "id": "check",
+              "state": "succeeded",
+              "callId": "ga_a4c316db6e8d456ab8e85c0990fdabe1_check"
+            }
+          ]
+        },
+        "modelRequests": 2,
+        "authorRequests": 1,
+        "initialDispatches": 1,
+        "continuationDispatches": 1,
+        "certifiedSubstitutions": 1,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 4,
+          "output_tokens": 431,
+          "cache_read_input_tokens": 7627,
+          "cache_creation_input_tokens": 1901
+        },
+        "fallbacks": {
+          "graph_exhausted": 1
+        },
+        "outcomes": {
+          "succeeded": 2,
+          "failed": 0,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "reported_model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 4,
+          "outputTokens": 431,
+          "cacheReadInputTokens": 7627,
+          "cacheCreationInputTokens": 1901,
+          "webSearchRequests": 0,
+          "costUSD": 0.0253694,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 68,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 1901,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      }
+    },
+    {
+      "scenario": "build",
+      "repeat": 2,
+      "mode": "on",
+      "requests": 2,
+      "substitutions": 1,
+      "tokens": 9923,
+      "cost": 0.0131784,
+      "api_ms": 5893,
+      "seconds": 10.12,
+      "state": "completed",
+      "usage": {
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 433,
+        "cache_read_input_tokens": 9092,
+        "output_tokens": 394,
+        "output_tokens_details": {
+          "thinking_tokens": 42
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 433,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 196,
+            "cache_read_input_tokens": 4546,
+            "cache_creation_input_tokens": 433,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 433
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "status": {
+        "enabled": true,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": "af7ef61200104132ad7b662ea316bbd6",
+          "state": "completed",
+          "reason": null,
+          "nodes": [
+            {
+              "id": "build",
+              "state": "succeeded",
+              "callId": "ga_af7ef61200104132ad7b662ea316bbd6_build"
+            },
+            {
+              "id": "check",
+              "state": "succeeded",
+              "callId": "ga_af7ef61200104132ad7b662ea316bbd6_check"
+            }
+          ]
+        },
+        "modelRequests": 2,
+        "authorRequests": 1,
+        "initialDispatches": 1,
+        "continuationDispatches": 1,
+        "certifiedSubstitutions": 1,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 4,
+          "output_tokens": 394,
+          "cache_read_input_tokens": 9092,
+          "cache_creation_input_tokens": 433
+        },
+        "fallbacks": {
+          "graph_exhausted": 1
+        },
+        "outcomes": {
+          "succeeded": 2,
+          "failed": 0,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "reported_model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 4,
+          "outputTokens": 394,
+          "cacheReadInputTokens": 9092,
+          "cacheCreationInputTokens": 433,
+          "webSearchRequests": 0,
+          "costUSD": 0.0131784,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 42,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 433,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      }
+    },
+    {
+      "scenario": "build",
+      "repeat": 2,
+      "mode": "off",
+      "requests": 3,
+      "substitutions": 0,
+      "tokens": 12257,
+      "cost": 0.0102556,
+      "api_ms": 6208,
+      "seconds": 10.42,
+      "state": "idle",
+      "usage": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 11858,
+        "output_tokens": 393,
+        "output_tokens_details": {
+          "thinking_tokens": 56
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 220,
+            "cache_read_input_tokens": 4048,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "status": {
+        "enabled": false,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": null,
+          "state": "idle",
+          "reason": null,
+          "nodes": []
+        },
+        "modelRequests": 3,
+        "authorRequests": 0,
+        "initialDispatches": 0,
+        "continuationDispatches": 0,
+        "certifiedSubstitutions": 0,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 6,
+          "output_tokens": 393,
+          "cache_read_input_tokens": 11858,
+          "cache_creation_input_tokens": 0
+        },
+        "fallbacks": {},
+        "outcomes": {
+          "succeeded": 0,
+          "failed": 0,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "reported_model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 6,
+          "outputTokens": 393,
+          "cacheReadInputTokens": 11858,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.0102556,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 56,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 0,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      }
+    },
+    {
+      "scenario": "failure",
+      "repeat": 1,
+      "mode": "off",
+      "requests": 2,
+      "substitutions": 0,
+      "tokens": 8077,
+      "cost": 0.0148306,
+      "api_ms": 3792,
+      "seconds": 9.81,
+      "state": "idle",
+      "usage": {
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 1111,
+        "cache_read_input_tokens": 6733,
+        "output_tokens": 229,
+        "output_tokens_details": {
+          "thinking_tokens": 11
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1111,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 126,
+            "cache_read_input_tokens": 3856,
+            "cache_creation_input_tokens": 132,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 132
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "status": {
+        "enabled": false,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": null,
+          "state": "idle",
+          "reason": null,
+          "nodes": []
+        },
+        "modelRequests": 2,
+        "authorRequests": 0,
+        "initialDispatches": 0,
+        "continuationDispatches": 0,
+        "certifiedSubstitutions": 0,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 4,
+          "output_tokens": 229,
+          "cache_read_input_tokens": 6733,
+          "cache_creation_input_tokens": 1111
+        },
+        "fallbacks": {},
+        "outcomes": {
+          "succeeded": 0,
+          "failed": 0,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "reported_model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 4,
+          "outputTokens": 229,
+          "cacheReadInputTokens": 6733,
+          "cacheCreationInputTokens": 1111,
+          "webSearchRequests": 0,
+          "costUSD": 0.0148306,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 11,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 1111,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      }
+    },
+    {
+      "scenario": "failure",
+      "repeat": 1,
+      "mode": "on",
+      "requests": 2,
+      "substitutions": 0,
+      "tokens": 9862,
+      "cost": 0.023662600000000002,
+      "api_ms": 4670,
+      "seconds": 8.54,
+      "state": "invalidated",
+      "usage": {
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 1865,
+        "cache_read_input_tokens": 7633,
+        "output_tokens": 360,
+        "output_tokens_details": {
+          "thinking_tokens": 20
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1865,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 134,
+            "cache_read_input_tokens": 4552,
+            "cache_creation_input_tokens": 394,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 394
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "status": {
+        "enabled": true,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": "91923a42c2884072b153d0cbea5e7c9b",
+          "state": "invalidated",
+          "reason": "execution_failed",
+          "nodes": [
+            {
+              "id": "run-fail",
+              "state": "failed",
+              "callId": "ga_91923a42c2884072b153d0cbea5e7c9b_run-fail"
+            },
+            {
+              "id": "run-must-not-run",
+              "state": "skipped"
+            }
+          ]
+        },
+        "modelRequests": 2,
+        "authorRequests": 1,
+        "initialDispatches": 1,
+        "continuationDispatches": 0,
+        "certifiedSubstitutions": 0,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 4,
+          "output_tokens": 360,
+          "cache_read_input_tokens": 7633,
+          "cache_creation_input_tokens": 1865
+        },
+        "fallbacks": {
+          "execution_failed": 1
+        },
+        "outcomes": {
+          "succeeded": 0,
+          "failed": 1,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "reported_model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 4,
+          "outputTokens": 360,
+          "cacheReadInputTokens": 7633,
+          "cacheCreationInputTokens": 1865,
+          "webSearchRequests": 0,
+          "costUSD": 0.023662600000000002,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 20,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 1865,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      }
+    },
+    {
+      "scenario": "failure",
+      "repeat": 2,
+      "mode": "on",
+      "requests": 2,
+      "substitutions": 0,
+      "tokens": 9843,
+      "cost": 0.0118928,
+      "api_ms": 9937,
+      "seconds": 14.04,
+      "state": "invalidated",
+      "usage": {
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 387,
+        "cache_read_input_tokens": 9104,
+        "output_tokens": 348,
+        "output_tokens_details": {
+          "thinking_tokens": 11
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 387,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 128,
+            "cache_read_input_tokens": 4552,
+            "cache_creation_input_tokens": 387,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 387
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "status": {
+        "enabled": true,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": "d51d97014c4248c08d8efc2cc8805707",
+          "state": "invalidated",
+          "reason": "execution_failed",
+          "nodes": [
+            {
+              "id": "fail",
+              "state": "failed",
+              "callId": "ga_d51d97014c4248c08d8efc2cc8805707_fail"
+            },
+            {
+              "id": "must_not_run",
+              "state": "skipped"
+            }
+          ]
+        },
+        "modelRequests": 2,
+        "authorRequests": 1,
+        "initialDispatches": 1,
+        "continuationDispatches": 0,
+        "certifiedSubstitutions": 0,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 4,
+          "output_tokens": 348,
+          "cache_read_input_tokens": 9104,
+          "cache_creation_input_tokens": 387
+        },
+        "fallbacks": {
+          "execution_failed": 1
+        },
+        "outcomes": {
+          "succeeded": 0,
+          "failed": 1,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "reported_model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 4,
+          "outputTokens": 348,
+          "cacheReadInputTokens": 9104,
+          "cacheCreationInputTokens": 387,
+          "webSearchRequests": 0,
+          "costUSD": 0.0118928,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 11,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 387,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      }
+    },
+    {
+      "scenario": "failure",
+      "repeat": 2,
+      "mode": "off",
+      "requests": 2,
+      "substitutions": 0,
+      "tokens": 8076,
+      "cost": 0.0072104000000000005,
+      "api_ms": 3794,
+      "seconds": 7.8,
+      "state": "idle",
+      "usage": {
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 129,
+        "cache_read_input_tokens": 7712,
+        "output_tokens": 231,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 129,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 131,
+            "cache_read_input_tokens": 3856,
+            "cache_creation_input_tokens": 129,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 129
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "status": {
+        "enabled": false,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": null,
+          "state": "idle",
+          "reason": null,
+          "nodes": []
+        },
+        "modelRequests": 2,
+        "authorRequests": 0,
+        "initialDispatches": 0,
+        "continuationDispatches": 0,
+        "certifiedSubstitutions": 0,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 4,
+          "output_tokens": 231,
+          "cache_read_input_tokens": 7712,
+          "cache_creation_input_tokens": 129
+        },
+        "fallbacks": {},
+        "outcomes": {
+          "succeeded": 0,
+          "failed": 0,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "reported_model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 4,
+          "outputTokens": 231,
+          "cacheReadInputTokens": 7712,
+          "cacheCreationInputTokens": 129,
+          "webSearchRequests": 0,
+          "costUSD": 0.0072104000000000005,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 0,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 129,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      }
+    },
+    {
+      "scenario": "unknown",
+      "repeat": 1,
+      "mode": "off",
+      "requests": 3,
+      "substitutions": 0,
+      "tokens": 12088,
+      "cost": 0.0165194,
+      "api_ms": 6118,
+      "seconds": 8.95,
+      "state": "idle",
+      "usage": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 1178,
+        "cache_read_input_tokens": 10657,
+        "output_tokens": 247,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1178,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 90,
+            "cache_read_input_tokens": 3953,
+            "cache_creation_input_tokens": 102,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 102
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "status": {
+        "enabled": false,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": null,
+          "state": "idle",
+          "reason": null,
+          "nodes": []
+        },
+        "modelRequests": 3,
+        "authorRequests": 0,
+        "initialDispatches": 0,
+        "continuationDispatches": 0,
+        "certifiedSubstitutions": 0,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 6,
+          "output_tokens": 247,
+          "cache_read_input_tokens": 10657,
+          "cache_creation_input_tokens": 1178
+        },
+        "fallbacks": {},
+        "outcomes": {
+          "succeeded": 0,
+          "failed": 0,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "reported_model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 6,
+          "outputTokens": 247,
+          "cacheReadInputTokens": 10657,
+          "cacheCreationInputTokens": 1178,
+          "webSearchRequests": 0,
+          "costUSD": 0.0165194,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 0,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 1178,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      }
+    },
+    {
+      "scenario": "unknown",
+      "repeat": 1,
+      "mode": "on",
+      "requests": 3,
+      "substitutions": 0,
+      "tokens": 14171,
+      "cost": 0.020674599999999998,
+      "api_ms": 5607,
+      "seconds": 8.35,
+      "state": "idle",
+      "usage": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 1670,
+        "cache_read_input_tokens": 12253,
+        "output_tokens": 242,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1670,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 85,
+            "cache_read_input_tokens": 4649,
+            "cache_creation_input_tokens": 102,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 102
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "status": {
+        "enabled": true,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": null,
+          "state": "idle",
+          "reason": null,
+          "nodes": []
+        },
+        "modelRequests": 3,
+        "authorRequests": 0,
+        "initialDispatches": 0,
+        "continuationDispatches": 0,
+        "certifiedSubstitutions": 0,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 6,
+          "output_tokens": 242,
+          "cache_read_input_tokens": 12253,
+          "cache_creation_input_tokens": 1670
+        },
+        "fallbacks": {},
+        "outcomes": {
+          "succeeded": 0,
+          "failed": 0,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "reported_model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 6,
+          "outputTokens": 242,
+          "cacheReadInputTokens": 12253,
+          "cacheCreationInputTokens": 1670,
+          "webSearchRequests": 0,
+          "costUSD": 0.020674599999999998,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 0,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 1670,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      }
+    },
+    {
+      "scenario": "unknown",
+      "repeat": 2,
+      "mode": "on",
+      "requests": 3,
+      "substitutions": 0,
+      "tokens": 14134,
+      "cost": 0.0069086,
+      "api_ms": 6144,
+      "seconds": 8.93,
+      "state": "idle",
+      "usage": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 13923,
+        "output_tokens": 205,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 48,
+            "cache_read_input_tokens": 4751,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "status": {
+        "enabled": true,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": null,
+          "state": "idle",
+          "reason": null,
+          "nodes": []
+        },
+        "modelRequests": 3,
+        "authorRequests": 0,
+        "initialDispatches": 0,
+        "continuationDispatches": 0,
+        "certifiedSubstitutions": 0,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 6,
+          "output_tokens": 205,
+          "cache_read_input_tokens": 13923,
+          "cache_creation_input_tokens": 0
+        },
+        "fallbacks": {},
+        "outcomes": {
+          "succeeded": 0,
+          "failed": 0,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "reported_model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 6,
+          "outputTokens": 205,
+          "cacheReadInputTokens": 13923,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.0069086,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 0,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 0,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      }
+    },
+    {
+      "scenario": "unknown",
+      "repeat": 2,
+      "mode": "off",
+      "requests": 3,
+      "substitutions": 0,
+      "tokens": 12083,
+      "cost": 0.007231,
+      "api_ms": 5937,
+      "seconds": 8.77,
+      "state": "idle",
+      "usage": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 11835,
+        "output_tokens": 242,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 85,
+            "cache_read_input_tokens": 4055,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "status": {
+        "enabled": false,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": null,
+          "state": "idle",
+          "reason": null,
+          "nodes": []
+        },
+        "modelRequests": 3,
+        "authorRequests": 0,
+        "initialDispatches": 0,
+        "continuationDispatches": 0,
+        "certifiedSubstitutions": 0,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 6,
+          "output_tokens": 242,
+          "cache_read_input_tokens": 11835,
+          "cache_creation_input_tokens": 0
+        },
+        "fallbacks": {},
+        "outcomes": {
+          "succeeded": 0,
+          "failed": 0,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "reported_model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 6,
+          "outputTokens": 242,
+          "cacheReadInputTokens": 11835,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.007231,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 0,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 0,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      }
+    },
+    {
+      "scenario": "no-reuse",
+      "repeat": 1,
+      "mode": "off",
+      "requests": 1,
+      "substitutions": 0,
+      "tokens": 3754,
+      "cost": 0.0076194,
+      "api_ms": 1702,
+      "seconds": 4.87,
+      "state": "idle",
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 872,
+        "cache_read_input_tokens": 2877,
+        "output_tokens": 3,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 872,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 3,
+            "cache_read_input_tokens": 2877,
+            "cache_creation_input_tokens": 872,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 872
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "status": {
+        "enabled": false,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": null,
+          "state": "idle",
+          "reason": null,
+          "nodes": []
+        },
+        "modelRequests": 1,
+        "authorRequests": 0,
+        "initialDispatches": 0,
+        "continuationDispatches": 0,
+        "certifiedSubstitutions": 0,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 2,
+          "output_tokens": 3,
+          "cache_read_input_tokens": 2877,
+          "cache_creation_input_tokens": 872
+        },
+        "fallbacks": {},
+        "outcomes": {
+          "succeeded": 0,
+          "failed": 0,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "reported_model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 2,
+          "outputTokens": 3,
+          "cacheReadInputTokens": 2877,
+          "cacheCreationInputTokens": 872,
+          "webSearchRequests": 0,
+          "costUSD": 0.0076194,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 0,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 872,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      }
+    },
+    {
+      "scenario": "no-reuse",
+      "repeat": 1,
+      "mode": "on",
+      "requests": 1,
+      "substitutions": 0,
+      "tokens": 4450,
+      "cost": 0.0115962,
+      "api_ms": 1355,
+      "seconds": 4.52,
+      "state": "idle",
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1364,
+        "cache_read_input_tokens": 3081,
+        "output_tokens": 3,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1364,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 3,
+            "cache_read_input_tokens": 3081,
+            "cache_creation_input_tokens": 1364,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1364
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "status": {
+        "enabled": true,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": null,
+          "state": "idle",
+          "reason": null,
+          "nodes": []
+        },
+        "modelRequests": 1,
+        "authorRequests": 0,
+        "initialDispatches": 0,
+        "continuationDispatches": 0,
+        "certifiedSubstitutions": 0,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 2,
+          "output_tokens": 3,
+          "cache_read_input_tokens": 3081,
+          "cache_creation_input_tokens": 1364
+        },
+        "fallbacks": {},
+        "outcomes": {
+          "succeeded": 0,
+          "failed": 0,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "reported_model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 2,
+          "outputTokens": 3,
+          "cacheReadInputTokens": 3081,
+          "cacheCreationInputTokens": 1364,
+          "webSearchRequests": 0,
+          "costUSD": 0.0115962,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 0,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 1364,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      }
+    },
+    {
+      "scenario": "no-reuse",
+      "repeat": 2,
+      "mode": "on",
+      "requests": 1,
+      "substitutions": 0,
+      "tokens": 4450,
+      "cost": 0.0009570000000000001,
+      "api_ms": 1241,
+      "seconds": 4.26,
+      "state": "idle",
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 4445,
+        "output_tokens": 3,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 3,
+            "cache_read_input_tokens": 4445,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "status": {
+        "enabled": true,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": null,
+          "state": "idle",
+          "reason": null,
+          "nodes": []
+        },
+        "modelRequests": 1,
+        "authorRequests": 0,
+        "initialDispatches": 0,
+        "continuationDispatches": 0,
+        "certifiedSubstitutions": 0,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 2,
+          "output_tokens": 3,
+          "cache_read_input_tokens": 4445,
+          "cache_creation_input_tokens": 0
+        },
+        "fallbacks": {},
+        "outcomes": {
+          "succeeded": 0,
+          "failed": 0,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "reported_model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 2,
+          "outputTokens": 3,
+          "cacheReadInputTokens": 4445,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.0009570000000000001,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 0,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 0,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      }
+    },
+    {
+      "scenario": "no-reuse",
+      "repeat": 2,
+      "mode": "off",
+      "requests": 1,
+      "substitutions": 0,
+      "tokens": 3754,
+      "cost": 0.0008178000000000001,
+      "api_ms": 1080,
+      "seconds": 4.45,
+      "state": "idle",
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 3749,
+        "output_tokens": 3,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 3,
+            "cache_read_input_tokens": 3749,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "status": {
+        "enabled": false,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": null,
+          "state": "idle",
+          "reason": null,
+          "nodes": []
+        },
+        "modelRequests": 1,
+        "authorRequests": 0,
+        "initialDispatches": 0,
+        "continuationDispatches": 0,
+        "certifiedSubstitutions": 0,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 2,
+          "output_tokens": 3,
+          "cache_read_input_tokens": 3749,
+          "cache_creation_input_tokens": 0
+        },
+        "fallbacks": {},
+        "outcomes": {
+          "succeeded": 0,
+          "failed": 0,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "reported_model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 2,
+          "outputTokens": 3,
+          "cacheReadInputTokens": 3749,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.0008178000000000001,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 0,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 0,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      }
+    },
+    {
+      "scenario": "reads",
+      "repeat": 1,
+      "mode": "off",
+      "requests": 2,
+      "substitutions": 0,
+      "tokens": 8301,
+      "cost": 0.016918999999999997,
+      "usage": {
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 1274,
+        "cache_read_input_tokens": 6755,
+        "output_tokens": 268,
+        "output_tokens_details": {
+          "thinking_tokens": 5
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1274,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 80,
+            "cache_read_input_tokens": 3878,
+            "cache_creation_input_tokens": 273,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 273
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "status": {
+        "enabled": false,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": null,
+          "state": "idle",
+          "reason": null,
+          "nodes": []
+        },
+        "modelRequests": 2,
+        "authorRequests": 0,
+        "initialDispatches": 0,
+        "continuationDispatches": 0,
+        "certifiedSubstitutions": 0,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 4,
+          "output_tokens": 268,
+          "cache_read_input_tokens": 6755,
+          "cache_creation_input_tokens": 1274
+        },
+        "fallbacks": {},
+        "outcomes": {
+          "succeeded": 0,
+          "failed": 0,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "reported_model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 4,
+          "outputTokens": 268,
+          "cacheReadInputTokens": 6755,
+          "cacheCreationInputTokens": 1274,
+          "webSearchRequests": 0,
+          "costUSD": 0.016918999999999997,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 5,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 1274,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      }
+    },
+    {
+      "scenario": "reads",
+      "repeat": 1,
+      "mode": "on",
+      "requests": 2,
+      "substitutions": 1,
+      "tokens": 9930,
+      "cost": 0.023350999999999997,
+      "usage": {
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 1968,
+        "cache_read_input_tokens": 7655,
+        "output_tokens": 303,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1968,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 74,
+            "cache_read_input_tokens": 4574,
+            "cache_creation_input_tokens": 475,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 475
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "status": {
+        "enabled": true,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": "f6a778142a394ff09c81ac56acdf4b95",
+          "state": "completed",
+          "reason": null,
+          "nodes": [
+            {
+              "id": "read1",
+              "state": "succeeded",
+              "callId": "ga_f6a778142a394ff09c81ac56acdf4b95_read1"
+            },
+            {
+              "id": "read2",
+              "state": "succeeded",
+              "callId": "ga_f6a778142a394ff09c81ac56acdf4b95_read2"
+            }
+          ]
+        },
+        "modelRequests": 2,
+        "authorRequests": 1,
+        "initialDispatches": 1,
+        "continuationDispatches": 1,
+        "certifiedSubstitutions": 1,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 4,
+          "output_tokens": 303,
+          "cache_read_input_tokens": 7655,
+          "cache_creation_input_tokens": 1968
+        },
+        "fallbacks": {
+          "graph_exhausted": 1
+        },
+        "outcomes": {
+          "succeeded": 2,
+          "failed": 0,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "reported_model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 4,
+          "outputTokens": 303,
+          "cacheReadInputTokens": 7655,
+          "cacheCreationInputTokens": 1968,
+          "webSearchRequests": 0,
+          "costUSD": 0.023350999999999997,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 0,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 1968,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      }
+    },
+    {
+      "scenario": "reads",
+      "repeat": 2,
+      "mode": "on",
+      "requests": 2,
+      "substitutions": 1,
+      "tokens": 9925,
+      "cost": 0.011581600000000001,
+      "usage": {
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 477,
+        "cache_read_input_tokens": 9148,
+        "output_tokens": 296,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 477,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 67,
+            "cache_read_input_tokens": 4574,
+            "cache_creation_input_tokens": 477,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 477
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "status": {
+        "enabled": true,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": "5c5824a8ec9d4ebc819ae9cce298e862",
+          "state": "completed",
+          "reason": null,
+          "nodes": [
+            {
+              "id": "read1",
+              "state": "succeeded",
+              "callId": "ga_5c5824a8ec9d4ebc819ae9cce298e862_read1"
+            },
+            {
+              "id": "read2",
+              "state": "succeeded",
+              "callId": "ga_5c5824a8ec9d4ebc819ae9cce298e862_read2"
+            }
+          ]
+        },
+        "modelRequests": 2,
+        "authorRequests": 1,
+        "initialDispatches": 1,
+        "continuationDispatches": 1,
+        "certifiedSubstitutions": 1,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 4,
+          "output_tokens": 296,
+          "cache_read_input_tokens": 9148,
+          "cache_creation_input_tokens": 477
+        },
+        "fallbacks": {
+          "graph_exhausted": 1
+        },
+        "outcomes": {
+          "succeeded": 2,
+          "failed": 0,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "reported_model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 4,
+          "outputTokens": 296,
+          "cacheReadInputTokens": 9148,
+          "cacheCreationInputTokens": 477,
+          "webSearchRequests": 0,
+          "costUSD": 0.011581600000000001,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 0,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 477,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      }
+    },
+    {
+      "scenario": "reads",
+      "repeat": 2,
+      "mode": "off",
+      "requests": 2,
+      "substitutions": 0,
+      "tokens": 8339,
+      "cost": 0.009799200000000001,
+      "usage": {
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 279,
+        "cache_read_input_tokens": 7756,
+        "output_tokens": 300,
+        "output_tokens_details": {
+          "thinking_tokens": 20
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 279,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 106,
+            "cache_read_input_tokens": 3878,
+            "cache_creation_input_tokens": 279,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 279
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "status": {
+        "enabled": false,
+        "compatible": true,
+        "version": "2.1.316",
+        "supportedVersion": "2.1.316",
+        "plan": {
+          "planId": null,
+          "state": "idle",
+          "reason": null,
+          "nodes": []
+        },
+        "modelRequests": 2,
+        "authorRequests": 0,
+        "initialDispatches": 0,
+        "continuationDispatches": 0,
+        "certifiedSubstitutions": 0,
+        "unknownUsageRequests": 0,
+        "usage": {
+          "input_tokens": 4,
+          "output_tokens": 300,
+          "cache_read_input_tokens": 7756,
+          "cache_creation_input_tokens": 279
+        },
+        "fallbacks": {},
+        "outcomes": {
+          "succeeded": 0,
+          "failed": 0,
+          "pending": 0,
+          "unknown": 0
+        },
+        "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+      },
+      "reported_model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 4,
+          "outputTokens": 300,
+          "cacheReadInputTokens": 7756,
+          "cacheCreationInputTokens": 279,
+          "webSearchRequests": 0,
+          "costUSD": 0.009799200000000001,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 20,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 279,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      }
+    }
+  ]
+}

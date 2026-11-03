@@ -1,0 +1,17 @@
+{
+  "name": "guarded-actions",
+  "version": "1.0.1",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "Guarded native action reuse for Claude Code",
+  "repository": { "type": "git", "url": "https://github.com/edifierx666/guarded-actions.git" },
+  "homepage": "https://github.com/edifierx666/guarded-actions#readme",
+  "bugs": { "url": "https://github.com/edifierx666/guarded-actions/issues" },
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "test": "node --test tests/*.test.mts",
+    "test:host": "claude plugin test .",
+    "validate": "claude plugin validate ."
+  }
+}

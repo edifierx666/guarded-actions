@@ -1,0 +1,16 @@
+{
+  "name": "edifierx666-guarded-actions",
+  "owner": {
+    "name": "edifierx666",
+    "url": "https://github.com/edifierx666"
+  },
+  "description": "Guarded Actions: explicit decision reuse through Claude Code native tools.",
+  "plugins": [
+    {
+      "name": "guarded-actions",
+      "source": "./",
+      "category": "development",
+      "tags": ["agent-harness", "token-efficiency", "decision-reuse"]
+    }
+  ]
+}
