@@ -1,12 +1,12 @@
 {
   "name": "guarded-actions",
   "displayName": "Guarded Actions",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Receipt-guarded reuse of already-decided Read and Bash actions, with native permissions and measured request accounting.",
   "author": { "name": "edifierx666", "url": "https://github.com/edifierx666" },
   "homepage": "https://github.com/edifierx666/guarded-actions#readme",
   "repository": "https://github.com/edifierx666/guarded-actions",
   "license": "MIT",
   "keywords": ["guarded-actions", "agent-harness", "token-efficiency", "decision-reuse"],
-  "metadata": { "testedClaudeCodeVersion": "2.1.316", "testedPlatform": "macOS arm64" }
+  "metadata": { "testedClaudeCodeVersions": ["2.1.316", "2.1.317"], "testedPlatform": "macOS arm64" }
 }

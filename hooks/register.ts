@@ -1,7 +1,7 @@
 import type { Register, TurnStepChunk, TurnStepResult } from 'claude-code';
 import type { ControllerDecision } from '../src/controller.ts';
 import { PLAN_DESCRIPTION, PLAN_SCHEMA, stableJson, validatePlan } from '../src/plan.ts';
-import { Runtime, TOOL, SUPPORTED_VERSION, normalizeReceipt, requestResult, authorMatches } from '../src/claude-adapter.ts';
+import { Runtime, TOOL, normalizeReceipt, requestResult, authorMatches } from '../src/claude-adapter.ts';
 import type { Author } from '../src/claude-adapter.ts';
 
 export const register: Register = on => {
@@ -10,7 +10,6 @@ export const register: Register = on => {
   on('session.start', async ($, e, next) => {
     const version = await $.session.version();
     runtime.version = version.base ?? version.version;
-    runtime.compatible = version.base === SUPPORTED_VERSION;
     await $.tool.register({ name: 'commit_plan', description: PLAN_DESCRIPTION, inputSchema: PLAN_SCHEMA, isDeferred: true });
     await $.command.register({ name: 'guarded', description: 'Enable, disable or inspect guarded native actions', argumentHint: 'on|off|status', immediate: true });
     return next(e);
@@ -20,7 +19,6 @@ export const register: Register = on => {
     const action = e.args.trim() || 'status';
     if (action === 'on' || action === 'off') {
       if (!['composer', 'bridge', 'sdk'].includes(e.origin.kind)) return { text: 'Only the user or SDK host can change Guarded Actions mode.' };
-      if (action === 'on' && !runtime.compatible) return { text: `Guarded Actions stays off: supported host ${SUPPORTED_VERSION}; current ${runtime.version}.` };
       runtime.invalidate(action === 'on' ? 'mode_changed' : 'disabled');
       runtime.enabled = action === 'on';
       await $.tool.register({ name: 'commit_plan', description: PLAN_DESCRIPTION, inputSchema: PLAN_SCHEMA, isDeferred: !runtime.enabled });
@@ -73,7 +71,7 @@ export const register: Register = on => {
     if (e.tool === TOOL) {
       const author = runtime.author;
       let reason: string | undefined;
-      if (!runtime.enabled || !runtime.compatible) reason = 'disabled';
+      if (!runtime.enabled) reason = 'disabled';
       else if (!author || author.epoch !== runtime.epoch || !author.calls.includes(callId)) reason = 'not_current_author';
       else if (runtime.active.size || runtime.controller.hasLive()) reason = 'execution_in_progress';
       if (reason) return { result: JSON.stringify({ status: 'rejected', reason }) };
@@ -150,7 +148,7 @@ export const register: Register = on => {
         else {
           runtime.verifyAuthor(messages);
           runtime.settle(messages);
-          action = runtime.controller.next({ turnId: e.turnId, step: e.index, cwd, enabled: runtime.enabled && runtime.compatible });
+          action = runtime.controller.next({ turnId: e.turnId, step: e.index, cwd, enabled: runtime.enabled });
         }
       }
     } catch (error) {

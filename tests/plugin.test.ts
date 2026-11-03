@@ -7,9 +7,9 @@ const plan = { schemaVersion: 1, nodes: [
   { id: 'test', after: 'build', tool: 'Bash', arguments: { command: 'npm test' }, when: 'succeeded' },
 ] };
 
-function stubs(on, modelCalls: string[], messages: unknown[], authoredPlan = plan) {
+function stubs(on, modelCalls: string[], messages: unknown[], authoredPlan = plan, hostVersion = '2.1.316') {
   on('session.start', ($, e) => ({ cwd: e.cwd }));
-  on('session.version', () => ({ value: { version: '2.1.316', base: '2.1.316', builtAt: '' } }));
+  on('session.version', () => ({ value: { version: hostVersion, base: hostVersion, builtAt: '' } }));
   on('session.id', () => ({ value: 'test-session' }));
   on('session.cwd', () => ({ value: '/work' }));
   on('session.messages', () => ({ value: messages }));
@@ -244,3 +244,17 @@ test('an ambiguous continuation records one fallback instead of silently droppin
   expect(status.continuationDispatches).toBe(0);
   expect(Object.values(status.fallbacks)).toEqual([1]);
 });
+
+for (const hostVersion of ['2.1.317', '3.0.0']) {
+  test(`native plans can be enabled and dispatched on host ${hostVersion}`, async ($, on) => {
+    const calls: string[] = [];
+    stubs(on, calls, [], plan, hostVersion);
+    await begin($);
+    const routed = await step($, 1);
+    expect(routed.result.toolUses).toEqual([{ name: 'Bash', input: { command: 'npm run build' } }]);
+    expect(calls).toEqual(['turn:0']);
+    const status = JSON.parse((await $.command.run({ command: 'guarded', args: 'status' })).text);
+    expect(status.enabled).toBe(true);
+    expect(status.version).toBe(hostVersion);
+  });
+}

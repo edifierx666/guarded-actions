@@ -1,0 +1,149 @@
+{
+  "pluginVersion": "1.1.0",
+  "host": "Claude Code 2.1.317",
+  "scope": "Real model-authored native execution after removing the version gate; separate from the original fixed A/B cohort",
+  "enabled_status": {
+    "enabled": true,
+    "version": "2.1.317",
+    "plan": {
+      "planId": null,
+      "state": "idle",
+      "reason": null,
+      "nodes": []
+    },
+    "modelRequests": 0,
+    "authorRequests": 0,
+    "initialDispatches": 0,
+    "continuationDispatches": 0,
+    "certifiedSubstitutions": 0,
+    "unknownUsageRequests": 0,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation_input_tokens": 0
+    },
+    "fallbacks": {},
+    "outcomes": {
+      "succeeded": 0,
+      "failed": 0,
+      "pending": 0,
+      "unknown": 0
+    },
+    "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+  },
+  "success_status": {
+    "enabled": true,
+    "version": "2.1.317",
+    "plan": {
+      "planId": "33f6dc7ab4f84a7393721110194f0742",
+      "state": "completed",
+      "reason": null,
+      "nodes": [
+        {
+          "id": "build",
+          "state": "succeeded",
+          "callId": "ga_33f6dc7ab4f84a7393721110194f0742_build"
+        },
+        {
+          "id": "check",
+          "state": "succeeded",
+          "callId": "ga_33f6dc7ab4f84a7393721110194f0742_check"
+        }
+      ]
+    },
+    "modelRequests": 2,
+    "authorRequests": 1,
+    "initialDispatches": 1,
+    "continuationDispatches": 1,
+    "certifiedSubstitutions": 1,
+    "unknownUsageRequests": 0,
+    "usage": {
+      "input_tokens": 4,
+      "output_tokens": 309,
+      "cache_read_input_tokens": 4568,
+      "cache_creation_input_tokens": 4995
+    },
+    "fallbacks": {
+      "graph_exhausted": 1
+    },
+    "outcomes": {
+      "succeeded": 2,
+      "failed": 0,
+      "pending": 0,
+      "unknown": 0
+    },
+    "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+  },
+  "failure_status": {
+    "enabled": true,
+    "version": "2.1.317",
+    "plan": {
+      "planId": "f4d063a83fe148dabf73542d677e9131",
+      "state": "invalidated",
+      "reason": "execution_failed",
+      "nodes": [
+        {
+          "id": "fail",
+          "state": "failed",
+          "callId": "ga_f4d063a83fe148dabf73542d677e9131_fail"
+        },
+        {
+          "id": "after",
+          "state": "skipped"
+        }
+      ]
+    },
+    "modelRequests": 4,
+    "authorRequests": 2,
+    "initialDispatches": 2,
+    "continuationDispatches": 1,
+    "certifiedSubstitutions": 1,
+    "unknownUsageRequests": 0,
+    "usage": {
+      "input_tokens": 10,
+      "output_tokens": 618,
+      "cache_read_input_tokens": 15364,
+      "cache_creation_input_tokens": 6154
+    },
+    "fallbacks": {
+      "graph_exhausted": 1,
+      "execution_failed": 1
+    },
+    "outcomes": {
+      "succeeded": 2,
+      "failed": 1,
+      "pending": 0,
+      "unknown": 0
+    },
+    "accountingScope": "Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings."
+  },
+  "success_answer": "I submitted the two-step plan with commit_plan, then ran both commands. Both succeeded.\n\n1. **`node build.mjs`** succeeded and printed: `Build completed`\n2. **`node check.mjs`** ran because the build succeeded. It printed: `Check passed: 42`\n\nI didn't run any other commands or change either script.",
+  "failure_answer": "The plan stopped at the first step, as intended.\n\n1. **`exit 7`** failed with exit code 7.\n2. **`printf should-not-run`** did not run, because its condition was that the first step succeed.\n\nI didn't retry the failed command or use any other tools.",
+  "native_calls": [
+    {
+      "id": "ga_33f6dc7ab4f84a7393721110194f0742_build",
+      "name": "Bash",
+      "input": {
+        "command": "node build.mjs",
+        "description": "Run the build script"
+      }
+    },
+    {
+      "id": "ga_33f6dc7ab4f84a7393721110194f0742_check",
+      "name": "Bash",
+      "input": {
+        "command": "node check.mjs",
+        "description": "Run the check script"
+      }
+    },
+    {
+      "id": "ga_f4d063a83fe148dabf73542d677e9131_fail",
+      "name": "Bash",
+      "input": {
+        "command": "exit 7",
+        "description": "Exit with status 7"
+      }
+    }
+  ]
+}

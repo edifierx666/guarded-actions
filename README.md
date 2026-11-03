@@ -5,15 +5,15 @@
 A Claude Code plugin for receipt-guarded execution of already-decided actions.
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Plugin 1.0.1](https://img.shields.io/badge/plugin-1.0.1-2563eb.svg)](CHANGELOG.md)
-[![Tested Claude Code](https://img.shields.io/badge/Claude_Code-2.1.316-555.svg)](#兼容性)
+[![Plugin 1.1.0](https://img.shields.io/badge/plugin-1.1.0-2563eb.svg)](CHANGELOG.md)
+[![Claude Code Mod](https://img.shields.io/badge/Claude_Code-Mod-555.svg)](#兼容性)
 
 Guarded Actions 让 Claude 一次声明已经确定的后续动作，插件根据**真实工具回执**决定是否直接执行。无需重新启动 Agent，不引入额外模型，也不修改 Claude Code 源码。
 
 例如，模型已经决定「构建成功后运行测试」：插件可以在构建完成后直接派发测试，省掉中间那次重复决策；遇到失败、新信息或不明确的状态，再交回模型。
 
 > **先读这两点：**
-> - 当前执行兼容范围严格限定为 **Claude Code CLI 2.1.316**。包括 2.1.317 在内的其他版本会拒绝开启加速；安装成功不等于运行兼容。
+> - **不限制 Claude Code 版本号。** 需要宿主提供 Mod、`turn.step` 和原生工具接口；版本号仅用于诊断，不作为开启或执行条件。
 > - **默认关闭，按需开启。** 小样本中，构建测试链平均减少 18.97% 总 token，但五类任务混合后总 token 增加 8.58%。它不是适合所有任务的“省 token 开关”。[查看完整测量](VERIFICATION.md)
 
 [安装](#安装) · [快速使用](#快速使用) · [适用场景](#什么时候值得开启) · [工作原理](#工作原理) · [实测结果](#实测结果) · [安全边界](#安全与数据边界) · [开发](#开发与测试)
@@ -47,13 +47,13 @@ claude plugin install guarded-actions --marketplace edifierx666/guarded-actions
 
 | 项目 | 当前范围 |
 | --- | --- |
-| Claude Code | **仅 2.1.316 允许开启**，不是 `>=2.1.316` |
-| 已实测环境 | macOS arm64，Claude Code CLI |
+| Claude Code | 不设置版本号门禁；需要 Mod 与原生工具接口 |
+| 已实测环境 | macOS arm64，Claude Code CLI 2.1.316、2.1.317 |
 | 工具 | 原生 `Read`、前台 `Bash` |
 | 会话 | 当前主会话、当前用户轮次 |
-| 未验证 | 其他宿主版本、其他操作系统、Desktop、VS Code |
+| 尚未实测 | 其他版本组合、其他操作系统、Desktop、VS Code |
 
-先运行 `claude --version` 查看版本。不匹配时插件保持关闭，不会自动修改或降级你的 Claude Code。只有通过对应宿主契约与原生执行验证后，才会扩展支持范围。
+无需降级或匹配某个版本号。`claude --version` 仅用于问题诊断；新版本不会仅因版本号不同被拒绝开启。若宿主缺少必要接口，或原生执行证据无法核验，仍不能绕过宿主限制或把未知结果当成成功。
 
 ## 快速使用
 
@@ -82,7 +82,7 @@ claude plugin install guarded-actions --marketplace edifierx666/guarded-actions
 
 | 命令 | 行为 |
 | --- | --- |
-| `/guarded on` | 在兼容宿主中开启当前会话的动作复用，不修改权限 |
+| `/guarded on` | 开启当前会话的动作复用，不检查版本号、不修改权限 |
 | `/guarded status` | 查看计划状态、模型请求、首次分发、后续替代、回退原因和 usage |
 | `/guarded off` | 停止派发尚未执行的动作，不擅自终止已经交给宿主管理的工具 |
 
@@ -177,7 +177,7 @@ claude plugin install guarded-actions --marketplace edifierx666/guarded-actions
 
 | 字段 | 含义 |
 | --- | --- |
-| `enabled` / `compatible` | 当前执行模式与宿主兼容状态 |
+| `enabled` / `version` | 当前执行模式与宿主版本信息；版本号不参与执行判断 |
 | `modelRequests` | 主会话向下游模型处理链转交的请求次数，不包含 SDK 内部重试计数 |
 | `authorRequests` | 提交有效计划的模型响应数 |
 | `initialDispatches` | 根动作分发数；**不算节省** |
@@ -224,7 +224,7 @@ claude plugin marketplace remove edifierx666-guarded-actions
 
 ## 常见问题
 
-**安装后为什么 `/guarded on` 拒绝开启？** 运行 `claude --version`。当前严格支持 2.1.316，其他版本按设计保持关闭。不要通过删除版本检查绕过兼容性验证。
+**升级 Claude Code 后需要等待插件放行版本号吗？** 不需要。1.1.0 起已经删除版本号门禁。若仍看到 `supported host 2.1.316`，请运行 `claude plugin update guarded-actions@edifierx666-guarded-actions`，然后重启或 `/reload-plugins`。
 
 **为什么找不到 `/guarded`？** 确认 `/plugin` 中插件已启用，然后重新启动或执行 `/reload-plugins`。组织策略、`--safe-mode` 或关闭 hooks 的配置也可能阻止 Mod 加载。
 

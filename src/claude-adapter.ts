@@ -4,7 +4,6 @@ import { Accounting } from './accounting.ts';
 import { stableJson } from './plan.ts';
 
 export const TOOL = 'mcp__guarded-actions__commit_plan';
-export const SUPPORTED_VERSION = '2.1.316';
 type Outcome = 'succeeded' | 'failed' | 'pending' | 'unknown';
 type NativeEvent = { kind: 'success' | 'failure'; tool: string; arguments: unknown; response?: unknown };
 const object = (value: unknown): value is Record<string, unknown> => value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -48,7 +47,6 @@ export class Runtime {
   controller = new Controller();
   accounting = new Accounting();
   enabled = false;
-  compatible = false;
   version = 'unknown';
   epoch = 0;
   author: Author | null = null;
@@ -107,7 +105,7 @@ export class Runtime {
   }
 
   status() {
-    return { enabled: this.enabled, compatible: this.compatible, version: this.version, supportedVersion: SUPPORTED_VERSION,
+    return { enabled: this.enabled, version: this.version,
       plan: this.controller.status(), ...this.accounting.snapshot(),
       accountingScope: 'Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings.' };
   }
