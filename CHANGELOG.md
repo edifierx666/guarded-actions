@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.2.0
 
 - Add the `enableOnStart` user option (default `false`). When set, each new or cleared session starts with Guarded Actions on and the plan tool registered as non-deferred; `/guarded on|off` still overrides it per session.
 - Report the configured value as `enableOnStart` in `/guarded status`.

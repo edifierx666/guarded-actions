@@ -5,7 +5,7 @@
 A Claude Code plugin for receipt-guarded execution of already-decided actions.
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Plugin 1.1.0](https://img.shields.io/badge/plugin-1.1.0-2563eb.svg)](CHANGELOG.md)
+[![Plugin 1.2.0](https://img.shields.io/badge/plugin-1.2.0-2563eb.svg)](CHANGELOG.md)
 [![Claude Code Mod](https://img.shields.io/badge/Claude_Code-Mod-555.svg)](#兼容性)
 
 Guarded Actions 让 Claude 一次声明已经确定的后续动作，插件根据**真实工具回执**决定是否直接执行。无需重新启动 Agent，不引入额外模型，也不修改 Claude Code 源码。

@@ -1,7 +1,7 @@
 {
   "name": "guarded-actions",
   "displayName": "Guarded Actions",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Receipt-guarded reuse of already-decided Read and Bash actions, with native permissions and measured request accounting.",
   "author": {
     "name": "edifierx666",
