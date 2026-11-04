@@ -86,7 +86,11 @@ claude plugin install guarded-actions --marketplace edifierx666/guarded-actions
 | `/guarded status` | 查看计划状态、模型请求、首次分发、后续替代、回退原因和 usage |
 | `/guarded off` | 停止派发尚未执行的动作，不擅自终止已经交给宿主管理的工具 |
 
-**插件已安装**和**执行模式已开启**是两回事。安装使命令可用；每个新会话仍需主动开启。清空或切换会话后不会恢复旧计划，统计也按会话重置。
+**插件已安装**和**执行模式已开启**是两回事。安装使命令可用；默认每个新会话仍需主动开启。清空或切换会话后不会恢复旧计划，统计也按会话重置。
+
+### 新会话自动开启
+
+在 `/config` 的插件配置里把 **Enable on session start**（`enableOnStart`）设为开启，每个新会话以及清空后的会话都会自动处于开启状态，无需再输入 `/guarded on`。修改后插件会自动重载。`/guarded off` 仍可在当前会话内临时关闭；`/guarded status` 中的 `enableOnStart` 显示当前配置值。默认值为 `false`，与旧版本行为一致。
 
 ## 什么时候值得开启？
 

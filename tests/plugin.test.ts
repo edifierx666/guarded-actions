@@ -7,14 +7,14 @@ const plan = { schemaVersion: 1, nodes: [
   { id: 'test', after: 'build', tool: 'Bash', arguments: { command: 'npm test' }, when: 'succeeded' },
 ] };
 
-function stubs(on, modelCalls: string[], messages: unknown[], authoredPlan = plan, hostVersion = '2.1.316') {
+function stubs(on, modelCalls: string[], messages: unknown[], authoredPlan = plan, hostVersion = '2.1.316', registered: boolean[] = []) {
   on('session.start', ($, e) => ({ cwd: e.cwd }));
   on('session.version', () => ({ value: { version: hostVersion, base: hostVersion, builtAt: '' } }));
   on('session.id', () => ({ value: 'test-session' }));
   on('session.cwd', () => ({ value: '/work' }));
   on('session.messages', () => ({ value: messages }));
   on('tool.list', () => ({ value: [{ name: 'Read' }, { name: 'Bash' }] }));
-  on('tool.register', () => ({ value: { tool: TOOL } }));
+  on('tool.register', ($, e) => { registered.push(e.isDeferred); return { value: { tool: TOOL } }; });
   on('command.register', () => ({ value: undefined }));
   on('ui.log', () => ({ value: undefined }));
   on('ui.invalidate', () => ({ value: undefined }));
@@ -258,3 +258,29 @@ for (const hostVersion of ['2.1.317', '3.0.0']) {
     expect(status.version).toBe(hostVersion);
   });
 }
+
+test('enableOnStart defaults to off and registers the plan tool deferred', async ($, on) => {
+  const registered: boolean[] = [];
+  stubs(on, [], [], plan, '2.1.317', registered);
+  await $.session.start({ cwd: '/work', surface: null, isInteractive: false });
+  const status = JSON.parse((await $.command.run({ command: 'guarded', args: 'status' })).text);
+  expect(status.enabled).toBe(false);
+  expect(status.enableOnStart).toBe(false);
+  expect(registered).toEqual([true]);
+});
+
+test('enableOnStart turns plans on without /guarded on and survives session reset', { options: { enableOnStart: true } }, async ($, on) => {
+  const calls: string[] = [];
+  const registered: boolean[] = [];
+  stubs(on, calls, [], plan, '2.1.317', registered);
+  await $.session.start({ cwd: '/work', surface: null, isInteractive: false });
+  expect(registered).toEqual([false]);
+  await step($, 0);
+  const response = await $.tool.call({ tool: TOOL, tool_use_id: 'author-call', ...plan });
+  expect(JSON.parse(response.result).status).toBe('staged');
+  expect((await step($, 1)).result.toolUses).toEqual([{ name: 'Bash', input: { command: 'npm run build' } }]);
+  await $.session.end({ sessionId: 'test-session', reason: 'clear' });
+  const status = JSON.parse((await $.command.run({ command: 'guarded', args: 'status' })).text);
+  expect(status.enabled).toBe(true);
+  expect(status.enableOnStart).toBe(true);
+});

@@ -56,6 +56,13 @@ export class Runtime {
   planAuthor: { callId: string; input: string } | null = null;
   reportedFallbacks = new Set<string>();
 
+  // 初始开关来自用户配置 enableOnStart；会话重置后回到该值，而不是固定关闭
+  readonly enabledByDefault: boolean;
+  constructor(enabledByDefault = false) {
+    this.enabledByDefault = enabledByDefault;
+    this.enabled = enabledByDefault;
+  }
+
   invalidate(reason: string) {
     const pending = this.controller.pendingAction();
     if (pending) this.accounting.settled({ callId: pending.callId, outcome: 'unknown', certified: false });
@@ -77,7 +84,7 @@ export class Runtime {
 
   resetSession() {
     this.invalidate('session_ended');
-    this.enabled = false;
+    this.enabled = this.enabledByDefault;
     this.author = null;
     this.active.clear();
     this.executed.clear();
@@ -105,7 +112,7 @@ export class Runtime {
   }
 
   status() {
-    return { enabled: this.enabled, version: this.version,
+    return { enabled: this.enabled, enableOnStart: this.enabledByDefault, version: this.version,
       plan: this.controller.status(), ...this.accounting.snapshot(),
       accountingScope: 'Main-loop forwarded steps, not provider retry attempts. Root dispatch is not a saving. No estimated token savings.' };
   }

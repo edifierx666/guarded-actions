@@ -4,13 +4,14 @@ import { PLAN_DESCRIPTION, PLAN_SCHEMA, stableJson, validatePlan } from '../src/
 import { Runtime, TOOL, normalizeReceipt, requestResult, authorMatches } from '../src/claude-adapter.ts';
 import type { Author } from '../src/claude-adapter.ts';
 
-export const register: Register = on => {
-  const runtime = new Runtime();
+export const register: Register = (on, options) => {
+  // 用户在 /config 中修改 enableOnStart 后宿主会重载模块，这里拿到的总是最新值
+  const runtime = new Runtime(options.enableOnStart === true);
 
   on('session.start', async ($, e, next) => {
     const version = await $.session.version();
     runtime.version = version.base ?? version.version;
-    await $.tool.register({ name: 'commit_plan', description: PLAN_DESCRIPTION, inputSchema: PLAN_SCHEMA, isDeferred: true });
+    await $.tool.register({ name: 'commit_plan', description: PLAN_DESCRIPTION, inputSchema: PLAN_SCHEMA, isDeferred: !runtime.enabled });
     await $.command.register({ name: 'guarded', description: 'Enable, disable or inspect guarded native actions', argumentHint: 'on|off|status', immediate: true });
     return next(e);
   });

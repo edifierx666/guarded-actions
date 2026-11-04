@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Add the `enableOnStart` user option (default `false`). When set, each new or cleared session starts with Guarded Actions on and the plan tool registered as non-deferred; `/guarded on|off` still overrides it per session.
+- Report the configured value as `enableOnStart` in `/guarded status`.
+
 ## 1.1.0
 
 - Remove all exact-version activation, plan-admission and execution gates. Claude Code version is diagnostic information only.

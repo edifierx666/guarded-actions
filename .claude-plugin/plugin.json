@@ -3,10 +3,32 @@
   "displayName": "Guarded Actions",
   "version": "1.1.0",
   "description": "Receipt-guarded reuse of already-decided Read and Bash actions, with native permissions and measured request accounting.",
-  "author": { "name": "edifierx666", "url": "https://github.com/edifierx666" },
+  "author": {
+    "name": "edifierx666",
+    "url": "https://github.com/edifierx666"
+  },
   "homepage": "https://github.com/edifierx666/guarded-actions#readme",
   "repository": "https://github.com/edifierx666/guarded-actions",
   "license": "MIT",
-  "keywords": ["guarded-actions", "agent-harness", "token-efficiency", "decision-reuse"],
-  "metadata": { "testedClaudeCodeVersions": ["2.1.316", "2.1.317"], "testedPlatform": "macOS arm64" }
+  "keywords": [
+    "guarded-actions",
+    "agent-harness",
+    "token-efficiency",
+    "decision-reuse"
+  ],
+  "userConfig": {
+    "enableOnStart": {
+      "type": "boolean",
+      "title": "Enable on session start",
+      "description": "Turn Guarded Actions on automatically when a session starts. /guarded on|off still overrides it for the current session.",
+      "default": false
+    }
+  },
+  "metadata": {
+    "testedClaudeCodeVersions": [
+      "2.1.316",
+      "2.1.317"
+    ],
+    "testedPlatform": "macOS arm64"
+  }
 }
